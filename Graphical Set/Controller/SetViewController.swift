@@ -47,6 +47,10 @@ class SetViewController: UIViewController {
     }
     
     @IBAction func deal(_ sender: UIButton) {
+        if game.deck.count == 0 {
+            dealButton.isEnabled = false
+            return
+        }
         game.dealMoreCards()
         updateViewFromModel()
     }
