@@ -31,6 +31,9 @@ class PlayingCardView: UIView {
             let newShape = ShapeView(frame: frame)
             newShape.translatesAutoresizingMaskIntoConstraints = false
             newShape.kind = kind
+            newShape.color = color
+            newShape.shadding = shadding
+            newShape.isOpaque = false
             shapes.append(newShape)
         }
         
