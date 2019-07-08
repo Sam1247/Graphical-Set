@@ -57,15 +57,14 @@ class ShapeView: UIView {
             path.fill()
         }
         
-        path.lineWidth = Constants.strokeRatio * bounds.height
+        path.lineWidth = 1
         path.addClip()
     }
 
 }
 
 struct Constants {
-    static let strokeWidth: CGFloat = 3.0
-    static let margin: CGFloat = 16.0
     static let marginRatio: CGFloat = 0.0625
-    static let strokeRatio: CGFloat = 0.03
+    static let strokeRatio: CGFloat = 0.01
+    static let cornerRadiusRatio: CGFloat = 0.25
 }

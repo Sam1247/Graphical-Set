@@ -37,44 +37,9 @@ class PlayingCardView: UIView {
             shapes.append(newShape)
         }
         
-        
-//        let b1 = ShapeView(frame: frame)
-//        b1.translatesAutoresizingMaskIntoConstraints = false
-//        b1.kind = .diamond
-//        b1.backgroundColor = .white
-//        let b2 = ShapeView(frame: frame)
-//        b2.translatesAutoresizingMaskIntoConstraints = false
-//        b2.kind = .diamond
-//        b2.backgroundColor = .white
-//        let b3 = ShapeView(frame: frame)
-//        b3.translatesAutoresizingMaskIntoConstraints = false
-//        b3.kind = .oval
-//        b3.backgroundColor = .white
         let stack = UIStackView(arrangedSubviews: shapes)
         stack.translatesAutoresizingMaskIntoConstraints = false
-
-
         
-        
-        
-        
-//        let b1 = ShapeView(frame: frame)
-//        b1.translatesAutoresizingMaskIntoConstraints = false
-//        b1.kind = .diamond
-//        b1.backgroundColor = .white
-//        let b2 = ShapeView(frame: frame)
-//        b2.translatesAutoresizingMaskIntoConstraints = false
-//        b2.kind = .diamond
-//        b2.backgroundColor = .white
-//        let b3 = ShapeView(frame: frame)
-//        b3.translatesAutoresizingMaskIntoConstraints = false
-//        b3.kind = .diamond
-//        b3.backgroundColor = .white
-//
-//        let stack = UIStackView(arrangedSubviews: [b1, b2, b3])
-//        stack.translatesAutoresizingMaskIntoConstraints = false
-//
-//
         stack.axis = .vertical
         stack.spacing = frame.height/16
         stack.distribution = .fillEqually
@@ -84,9 +49,6 @@ class PlayingCardView: UIView {
         stack.rightAnchor.constraint(equalTo: rightAnchor, constant: -frame.width * Constants.marginRatio).isActive = true
         stack.heightAnchor.constraint(equalToConstant: frame.height * CGFloat(shapes.count) / 3 - frame.height * Constants.marginRatio).isActive = true
         stack.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        
-        
-        
     }
 
 }

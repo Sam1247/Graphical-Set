@@ -100,11 +100,11 @@
 		20D9868022CAD452006EA373 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				20E5A92022CE9B8800220D32 /* Grid.swift */,
 				20BB6F0922CF83CF00DA1451 /* ContainerView.swift */,
 				208EC22422CFA53F00D1C458 /* PlayingCardView.swift */,
 				20C8EDD022D0120A00DEDC86 /* ShapeView.swift */,
 				20103CE522D3A03B0046F0E4 /* ShapesVarients.swift */,
+				20E5A92022CE9B8800220D32 /* Grid.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";

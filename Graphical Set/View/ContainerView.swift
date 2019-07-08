@@ -10,11 +10,9 @@ import UIKit
 
 class ContainerView: UIView {
     
-    var playingCardViews = [PlayingCardView]()
-
-    var playingCardsCounts = 1 {
+    var playingCardViews = [PlayingCardView]() {
         didSet {
-            if (playingCardsCounts > columnNumber * columnNumber) {
+            if playingCardViews.count > columnNumber * columnNumber {
                 columnNumber += 1
             } else {
                 setNeedsDisplay()
@@ -22,25 +20,27 @@ class ContainerView: UIView {
         }
     }
     
-    var columnNumber = 1 {
+    var columnNumber = 0 {
         didSet {
             setNeedsDisplay()
         }
     }
     
-    var grid: Grid?
-    
     override func draw(_ rect: CGRect) {
         self.subviews.forEach{ $0.removeFromSuperview() }
-        grid = Grid(layout: .dimensions(rowCount: columnNumber, columnCount: columnNumber), frame: self.bounds)
-        let frame = grid![0,0]
-        let view = PlayingCardView(frame: frame!)
-        view.count = .three
-        view.kind = .triangle
-        view.color = .purple
-        view.shadding = .open
-        view.backgroundColor = .white
-        addSubview(view)
+        let grid = Grid(layout: .dimensions(rowCount: columnNumber, columnCount: columnNumber), frame: self.bounds)
+        for i in 0..<columnNumber {
+            for j in 0..<columnNumber {
+                let index = j + i * columnNumber
+                if index < playingCardViews.count {
+                    let frame = grid[i, j]
+                    let view = playingCardViews[index]
+                    view.frame = frame!
+                    addSubview(view)
+                }
+            }
+        }
+        
     }
     
     private func getRandomColor() -> UIColor {
@@ -49,4 +49,3 @@ class ContainerView: UIView {
     }
 
 }
-

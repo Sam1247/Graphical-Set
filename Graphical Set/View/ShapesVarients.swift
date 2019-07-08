@@ -12,14 +12,14 @@ enum Count: Int {
     case one = 1 , two , three
 }
 
-enum Kind {
-    case diamond, triangle, oval
+enum Kind: Int {
+    case diamond = 1, triangle, oval
 }
 
-enum Shadding {
-    case solid, shaded, open
+enum Shadding: Int {
+    case solid = 1, shaded, open
 }
 
-enum Color {
-    case red, green, purple
+enum Color: Int {
+    case red = 1, green, purple
 }
