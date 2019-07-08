@@ -9,12 +9,20 @@
 import UIKit
 
 class SetViewController: UIViewController {
-
+    
+    @IBOutlet weak var containerView: ContainerView!
+    
+    @IBOutlet weak var dealButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        dealButton.layer.cornerRadius = 12
     }
 
-
+    
+    @IBAction func deal(_ sender: UIButton) {
+        containerView.playingCardsCounts += 3
+    }
+    
 }
 

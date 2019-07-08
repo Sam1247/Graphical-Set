@@ -11,7 +11,7 @@ import Foundation
 struct Set {
     
     private var deck = [Card]()
-    var showingPlayingCards = [Card?]()
+    var playingCards = [Card?]()
     
     init() {
         for number in 1...3 {
@@ -35,42 +35,42 @@ struct Set {
     
     mutating func dealMoreCards () {
         for _ in 0..<3 {
-            showingPlayingCards.append(deck.remove(at: 0))
+            playingCards.append(deck.remove(at: 0))
         }
     }
     
-    mutating func shuffleShowingPlayingCard() {
-        showingPlayingCards.shuffle()
+    mutating func shufflePlayingCards() {
+        playingCards.shuffle()
     }
     
     mutating func isMatched (_ index1: Int, _ index2: Int, _ index3: Int) -> Bool {
         
-        let sameColor = showingPlayingCards[index1]!.color == showingPlayingCards[index2]!.color &&
-            showingPlayingCards[index2]!.color == showingPlayingCards[index3]!.color
-        let sameNumber = showingPlayingCards[index1]!.number == showingPlayingCards[index2]!.number &&
-            showingPlayingCards[index2]!.number == showingPlayingCards[index3]!.number
-        let sameSymbol = showingPlayingCards[index1]!.symbol == showingPlayingCards[index2]!.symbol &&
-            showingPlayingCards[index2]!.symbol == showingPlayingCards[index3]!.symbol
-        let sameShading = showingPlayingCards[index1]!.shading == showingPlayingCards[index2]!.shading &&
-            showingPlayingCards[index2]!.shading == showingPlayingCards[index3]!.shading
+        let sameColor = playingCards[index1]!.varient2 == playingCards[index2]!.varient2 &&
+            playingCards[index2]!.varient2 == playingCards[index3]!.varient2
+        let sameNumber = playingCards[index1]!.varient1 == playingCards[index2]!.varient1 &&
+            playingCards[index2]!.varient1 == playingCards[index3]!.varient1
+        let sameSymbol = playingCards[index1]!.varient3 == playingCards[index2]!.varient3 &&
+            playingCards[index2]!.varient3 == playingCards[index3]!.varient3
+        let sameShading = playingCards[index1]!.varient4 == playingCards[index2]!.varient4 &&
+            playingCards[index2]!.varient4 == playingCards[index3]!.varient4
         
-        let differentColor = showingPlayingCards[index1]!.color != showingPlayingCards[index2]!.color &&
-            showingPlayingCards[index1]!.color != showingPlayingCards[index3]!.color &&
-            showingPlayingCards[index2]!.color != showingPlayingCards[index3]!.color
-        let differentNumber = showingPlayingCards[index1]!.number != showingPlayingCards[index2]!.number &&
-            showingPlayingCards[index1]!.number != showingPlayingCards[index3]!.number &&
-            showingPlayingCards[index2]!.number != showingPlayingCards[index3]!.number
-        let differentSymbol = showingPlayingCards[index1]!.symbol != showingPlayingCards[index2]!.symbol &&
-            showingPlayingCards[index1]!.symbol != showingPlayingCards[index3]!.symbol &&
-            showingPlayingCards[index2]!.symbol != showingPlayingCards[index3]!.symbol
-        let differentShading = showingPlayingCards[index1]!.shading != showingPlayingCards[index2]!.shading &&
-            showingPlayingCards[index1]!.shading != showingPlayingCards[index3]!.shading &&
-            showingPlayingCards[index2]!.shading != showingPlayingCards[index3]!.shading
+        let differentColor = playingCards[index1]!.varient2 != playingCards[index2]!.varient2 &&
+            playingCards[index1]!.varient2 != playingCards[index3]!.varient2 &&
+            playingCards[index2]!.varient2 != playingCards[index3]!.varient2
+        let differentNumber = playingCards[index1]!.varient1 != playingCards[index2]!.varient1 &&
+            playingCards[index1]!.varient1 != playingCards[index3]!.varient1 &&
+            playingCards[index2]!.varient1 != playingCards[index3]!.varient1
+        let differentSymbol = playingCards[index1]!.varient3 != playingCards[index2]!.varient3 &&
+            playingCards[index1]!.varient3 != playingCards[index3]!.varient3 &&
+            playingCards[index2]!.varient3 != playingCards[index3]!.varient3
+        let differentShading = playingCards[index1]!.varient4 != playingCards[index2]!.varient4 &&
+            playingCards[index1]!.varient4 != playingCards[index3]!.varient4 &&
+            playingCards[index2]!.varient4 != playingCards[index3]!.varient4
         
         if (sameColor || differentColor) && (sameNumber || differentNumber) && (sameSymbol || differentSymbol) && (sameShading || differentShading){
-            showingPlayingCards[index1] = nil
-            showingPlayingCards[index2] = nil
-            showingPlayingCards[index3] = nil
+            playingCards[index1] = nil
+            playingCards[index2] = nil
+            playingCards[index3] = nil
             return true
         }
         return false

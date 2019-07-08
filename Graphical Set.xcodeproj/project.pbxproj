@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		20103CE622D3A03B0046F0E4 /* ShapesVarients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20103CE522D3A03B0046F0E4 /* ShapesVarients.swift */; };
+		208EC22522CFA53F00D1C458 /* PlayingCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208EC22422CFA53F00D1C458 /* PlayingCardView.swift */; };
+		20BB6F0A22CF83CF00DA1451 /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BB6F0922CF83CF00DA1451 /* ContainerView.swift */; };
+		20C8EDD122D0120A00DEDC86 /* ShapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C8EDD022D0120A00DEDC86 /* ShapeView.swift */; };
 		20D9866B22CAD3C4006EA373 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D9866A22CAD3C4006EA373 /* AppDelegate.swift */; };
 		20D9866D22CAD3C4006EA373 /* SetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D9866C22CAD3C4006EA373 /* SetViewController.swift */; };
 		20D9867022CAD3C4006EA373 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20D9866E22CAD3C4006EA373 /* Main.storyboard */; };
@@ -14,9 +18,14 @@
 		20D9867522CAD3C6006EA373 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20D9867322CAD3C6006EA373 /* LaunchScreen.storyboard */; };
 		20D9868322CAD47C006EA373 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D9868222CAD47C006EA373 /* Card.swift */; };
 		20D9868522CAD571006EA373 /* Set.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D9868422CAD571006EA373 /* Set.swift */; };
+		20E5A92122CE9B8800220D32 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E5A92022CE9B8800220D32 /* Grid.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		20103CE522D3A03B0046F0E4 /* ShapesVarients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapesVarients.swift; sourceTree = "<group>"; };
+		208EC22422CFA53F00D1C458 /* PlayingCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingCardView.swift; sourceTree = "<group>"; };
+		20BB6F0922CF83CF00DA1451 /* ContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
+		20C8EDD022D0120A00DEDC86 /* ShapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeView.swift; sourceTree = "<group>"; };
 		20D9866722CAD3C4006EA373 /* Graphical Set.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Graphical Set.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		20D9866A22CAD3C4006EA373 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		20D9866C22CAD3C4006EA373 /* SetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetViewController.swift; sourceTree = "<group>"; };
@@ -26,6 +35,7 @@
 		20D9867622CAD3C6006EA373 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		20D9868222CAD47C006EA373 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		20D9868422CAD571006EA373 /* Set.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Set.swift; sourceTree = "<group>"; };
+		20E5A92022CE9B8800220D32 /* Grid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +73,7 @@
 				20D9867F22CAD444006EA373 /* Model */,
 				20D9866E22CAD3C4006EA373 /* Main.storyboard */,
 				20D9867122CAD3C6006EA373 /* Assets.xcassets */,
+				20D9867622CAD3C6006EA373 /* Info.plist */,
 				20D9867E22CAD400006EA373 /* supporting files */,
 			);
 			path = "Graphical Set";
@@ -73,7 +84,6 @@
 			children = (
 				20D9866A22CAD3C4006EA373 /* AppDelegate.swift */,
 				20D9867322CAD3C6006EA373 /* LaunchScreen.storyboard */,
-				20D9867622CAD3C6006EA373 /* Info.plist */,
 			);
 			path = "supporting files";
 			sourceTree = "<group>";
@@ -90,6 +100,11 @@
 		20D9868022CAD452006EA373 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				20E5A92022CE9B8800220D32 /* Grid.swift */,
+				20BB6F0922CF83CF00DA1451 /* ContainerView.swift */,
+				208EC22422CFA53F00D1C458 /* PlayingCardView.swift */,
+				20C8EDD022D0120A00DEDC86 /* ShapeView.swift */,
+				20103CE522D3A03B0046F0E4 /* ShapesVarients.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -174,9 +189,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				20D9868522CAD571006EA373 /* Set.swift in Sources */,
+				208EC22522CFA53F00D1C458 /* PlayingCardView.swift in Sources */,
+				20103CE622D3A03B0046F0E4 /* ShapesVarients.swift in Sources */,
 				20D9866D22CAD3C4006EA373 /* SetViewController.swift in Sources */,
+				20BB6F0A22CF83CF00DA1451 /* ContainerView.swift in Sources */,
 				20D9868322CAD47C006EA373 /* Card.swift in Sources */,
+				20E5A92122CE9B8800220D32 /* Grid.swift in Sources */,
 				20D9866B22CAD3C4006EA373 /* AppDelegate.swift in Sources */,
+				20C8EDD122D0120A00DEDC86 /* ShapeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

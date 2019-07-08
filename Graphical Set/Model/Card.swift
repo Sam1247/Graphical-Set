@@ -11,10 +11,10 @@ import Foundation
 struct Card {
     
     init(number: varient, color: varient, symbol: varient, shading: varient) {
-        self.number = number
-        self.color = color
-        self.symbol = symbol
-        self.shading = shading
+        self.varient1 = number
+        self.varient2 = color
+        self.varient3 = symbol
+        self.varient4 = shading
     }
     
     enum varient: Int {
@@ -23,10 +23,10 @@ struct Card {
     
     // Indentifiers
     
-    let number: varient
-    let color: varient
-    let symbol: varient
-    let shading: varient
+    let varient1: varient
+    let varient2: varient
+    let varient3: varient
+    let varient4: varient
     
     
 }
@@ -34,10 +34,10 @@ struct Card {
 extension Card: Equatable {
     static func ==(lhs: Card, rhs: Card) -> Bool {
         return (
-            (lhs.number == rhs.number) &&
-                (lhs.color == rhs.color) &&
-                (lhs.symbol == rhs.symbol) &&
-                (lhs.shading == rhs.shading)
+            (lhs.varient1 == rhs.varient1) &&
+                (lhs.varient2 == rhs.varient2) &&
+                (lhs.varient3 == rhs.varient3) &&
+                (lhs.varient4 == rhs.varient4)
         )
     }
     
