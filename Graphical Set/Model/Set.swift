@@ -14,16 +14,16 @@ struct Set {
     var playingCards = [Card?]()
     
     init() {
-        for number in 1...3 {
-            for color in 1...3 {
-                for symbol in 1...3 {
-                    for shading in 1...3 {
+        for color in 1...3 {
+            for kind in 1...3 {
+                for count in 1...3 {
+                    for shadding in 1...3 {
                         deck.append(
                             Card(
-                                number: Card.varient(rawValue: number)!,
                                 color: Card.varient(rawValue: color)!,
-                                symbol: Card.varient(rawValue: symbol)!,
-                                shading: Card.varient(rawValue: shading)!
+                                kind: Card.varient(rawValue: kind)!,
+                                count: Card.varient(rawValue: count)!,
+                                shadding: Card.varient(rawValue: shadding)!
                             )
                         )
                     }
@@ -76,7 +76,13 @@ struct Set {
             playingCards.remove(at: index3)
             return true
         }
-        return false
+        let index1 = playingCards.firstIndex(of: card1)!
+        playingCards.remove(at: index1)
+        let index2 = playingCards.firstIndex(of: card2)!
+        playingCards.remove(at: index2)
+        let index3 = playingCards.firstIndex(of: card3)!
+        playingCards.remove(at: index3)
+        return true
     }
     
 }

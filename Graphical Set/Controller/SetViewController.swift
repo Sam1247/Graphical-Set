@@ -34,7 +34,8 @@ class SetViewController: UIViewController {
         updateViewFromModel()
     }
 
-    func updateViewFromModel () {
+    @objc
+    func updateViewFromModel() {
         containerView.playingCardViews.removeAll()
         for card in game.playingCards {
             let cardView = PlayingCardView()
@@ -71,6 +72,27 @@ class SetViewController: UIViewController {
     }
     
     func handleMatching() {
-        
+        let card1 = getCardFromView(from: selectedPlayingCards[0])
+        let card2 = getCardFromView(from: selectedPlayingCards[1])
+        let card3 = getCardFromView(from: selectedPlayingCards[2])
+        if game.isMatched(card1, card2, card3) {
+            for cardView in containerView.playingCardViews {
+                if selectedPlayingCards.contains(cardView) {
+                    cardView.layer.borderColor = UIColor.cyan.cgColor
+                }
+            }
+            selectedPlayingCards.removeAll()
+            Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateViewFromModel), userInfo: nil, repeats: false)
+        }
+    }
+    
+    func getCardFromView(from cardView: PlayingCardView) -> Card {
+        let card = Card(
+            color: Card.varient(rawValue: cardView.color!.rawValue)!,
+            kind: Card.varient(rawValue: cardView.kind!.rawValue)!,
+            count: Card.varient(rawValue: cardView.count!.rawValue)!,
+            shadding: Card.varient(rawValue: cardView.shadding!.rawValue)!
+        )
+        return card
     }
 }
