@@ -11,10 +11,15 @@ import UIKit
 class SetViewController: UIViewController {
     
     var game = Set()
-    
     @IBOutlet weak var containerView: ContainerView!
-    
     @IBOutlet weak var dealButton: UIButton!
+    var selectedPlayingCards = [PlayingCardView]() {
+        didSet {
+            if selectedPlayingCards.count == 3 {
+                handleMatching()
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,15 +38,12 @@ class SetViewController: UIViewController {
         containerView.playingCardViews.removeAll()
         for card in game.playingCards {
             let cardView = PlayingCardView()
-            cardView.backgroundColor = .white
-            cardView.clipsToBounds = true
-            cardView.layer.borderWidth = 1
-            cardView.layer.borderColor = UIColor.gray.cgColor
-            cardView.layer.cornerRadius = 1
             cardView.color = Color(rawValue: card!.varient1.rawValue)
             cardView.kind = Kind(rawValue: card!.varient2.rawValue)
             cardView.count = Count(rawValue: card!.varient3.rawValue)
             cardView.shadding = Shadding(rawValue: card!.varient4.rawValue)
+            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SetViewController.select(recognizer:)))
+            cardView.addGestureRecognizer(tapGestureRecognizer)
             containerView.playingCardViews.append(cardView)
         }
     }
@@ -55,5 +57,20 @@ class SetViewController: UIViewController {
         updateViewFromModel()
     }
     
+    @objc
+    func select(recognizer: UIPanGestureRecognizer) {
+        if let sender = recognizer.view as? PlayingCardView {
+            if selectedPlayingCards.contains(sender) {
+                sender.layer.borderColor = UIColor.gray.cgColor
+                selectedPlayingCards.remove(at: selectedPlayingCards.firstIndex(of: sender)!)
+                return
+            }
+            sender.layer.borderColor = UIColor.blue.cgColor
+            selectedPlayingCards.append(sender)
+        }
+    }
+    
+    func handleMatching() {
+        
+    }
 }
-
