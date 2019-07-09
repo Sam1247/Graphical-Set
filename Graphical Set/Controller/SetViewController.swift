@@ -93,9 +93,15 @@ class SetViewController: UIViewController {
                     cardView.layer.borderColor = UIColor.cyan.cgColor
                 }
             }
-            selectedPlayingCards.removeAll()
-            Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateViewFromModel), userInfo: nil, repeats: false)
+        } else {
+            for cardView in containerView.playingCardViews {
+                if selectedPlayingCards.contains(cardView) {
+                    cardView.layer.borderColor = UIColor.red.cgColor
+                }
+            }
         }
+        selectedPlayingCards.removeAll()
+        Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateViewFromModel), userInfo: nil, repeats: false)
     }
     
     func getCardFromView(from cardView: PlayingCardView) -> Card {
@@ -121,7 +127,6 @@ class SetViewController: UIViewController {
     
     @objc
     func dealSwipe(recognizer: UISwipeGestureRecognizer) {
-        print("hereee")
         switch recognizer.direction {
         case .down:
             deal3more()

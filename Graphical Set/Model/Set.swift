@@ -69,20 +69,14 @@ struct Set {
         
         if (sameColor || differentColor) && (sameNumber || differentNumber) && (sameSymbol || differentSymbol) && (sameShading || differentShading){
             let index1 = playingCards.firstIndex(of: card1)!
-            let index2 = playingCards.firstIndex(of: card2)!
-            let index3 = playingCards.firstIndex(of: card3)!
             playingCards.remove(at: index1)
+            let index2 = playingCards.firstIndex(of: card2)!
             playingCards.remove(at: index2)
+            let index3 = playingCards.firstIndex(of: card3)!
             playingCards.remove(at: index3)
             return true
         }
-        let index1 = playingCards.firstIndex(of: card1)!
-        playingCards.remove(at: index1)
-        let index2 = playingCards.firstIndex(of: card2)!
-        playingCards.remove(at: index2)
-        let index3 = playingCards.firstIndex(of: card3)!
-        playingCards.remove(at: index3)
-        return true
+        return false
     }
     
 }
