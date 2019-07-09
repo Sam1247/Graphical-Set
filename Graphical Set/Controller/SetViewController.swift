@@ -11,7 +11,15 @@ import UIKit
 class SetViewController: UIViewController {
     
     var game = Set()
-    @IBOutlet weak var containerView: ContainerView!
+    @IBOutlet weak var containerView: ContainerView! {
+        didSet {
+            let rotationGesture = UIRotationGestureRecognizer(target: self, action: #selector(shuffle(recognizer:)))
+            containerView.addGestureRecognizer(rotationGesture)
+            let swipeDownGesture = UISwipeGestureRecognizer(target: self, action: #selector(dealSwipe(recognizer:)))
+            swipeDownGesture.direction = .down
+            containerView.addGestureRecognizer(swipeDownGesture)
+        }
+    }
     @IBOutlet weak var dealButton: UIButton!
     var selectedPlayingCards = [PlayingCardView]() {
         didSet {
@@ -50,6 +58,10 @@ class SetViewController: UIViewController {
     }
     
     @IBAction func deal(_ sender: UIButton) {
+        deal3more()
+    }
+    
+    func deal3more() {
         if game.deck.count == 0 {
             dealButton.isEnabled = false
             return
@@ -95,4 +107,27 @@ class SetViewController: UIViewController {
         )
         return card
     }
+    
+    @objc
+    func shuffle(recognizer: UIPanGestureRecognizer) {
+        switch recognizer.state {
+        case .ended:
+            game.shufflePlayingCards()
+            updateViewFromModel()
+        default:
+            break
+        }
+    }
+    
+    @objc
+    func dealSwipe(recognizer: UISwipeGestureRecognizer) {
+        print("hereee")
+        switch recognizer.direction {
+        case .down:
+            deal3more()
+        default:
+            break
+        }
+    }
+    
 }
